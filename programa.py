@@ -35,7 +35,7 @@ x_testeo = testeo.drop(['ID','default.payment.next.month'], axis=1).as_matrix()
 x_testeo = StandardScaler().fit_transform(x_testeo)
 y_testeo = to_categorical(testeo['default.payment.next.month'])
 
-
+x_predict = StandardScaler().fit_transform(predict)
 
 print(x_testeo)
 
@@ -71,7 +71,7 @@ model.fit(x_entrenamiento, y_entrenamiento, epochs=20, callbacks = [early_stoppi
 
 model.evaluate(x_testeo, y_testeo)
 
-print(predict)
+print(x_predict)
 
-model.predict(predict)
+model.predict(x_predict)
 #print(predictors)
